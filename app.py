@@ -1,0 +1,17 @@
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return """
+    <h1>Flask Notes App</h1>
+    <p>Deployed using Shell Script + Docker</p>
+    """
+
+@app.route('/health')
+def health():
+    return {"status": "running"}
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
